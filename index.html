@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WebAR Factory Demo</title>
     
-    <!-- Three.js library for 3D rendering -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- MindAR library compiled for Three.js integration -->
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"></script>
+    <!-- ES Module Import Map for modern Three.js and MindAR -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js",
+        "mindar-image-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+      }
+    }
+    </script>
     
     <!-- vConsole for mobile debugging -->
     <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
@@ -41,6 +45,6 @@
         </div>
     </div>
 
-    <script src="app.js?v=2"></script>
+    <script type="module" src="app.js?v=3"></script>
 </body>
 </html>

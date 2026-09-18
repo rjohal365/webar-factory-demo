@@ -1,3 +1,6 @@
+import * as THREE from 'three';
+import { MindARThree } from 'mindar-image-three';
+
 document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("start-button");
     const startScreen = document.getElementById("start-screen");
@@ -13,13 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
             startButton.innerText = "Loading Camera...";
             startButton.disabled = true;
             
-            // Debug check
-            if (!window.MINDAR) {
-                throw new Error("MindAR library failed to load! Check your internet or browser compatibility.");
-            }
-            
             // 1. Initialize MindAR and Three.js
-            const mindarThree = new window.MINDAR.IMAGE.MindARThree({
+            const mindarThree = new MindARThree({
                 container: document.querySelector("#container"),
                 imageTargetSrc: TARGET_IMAGE_URL
             });
