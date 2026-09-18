@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Mobile-friendly meta tag to ensure proper scaling and disable pinch zoom on devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WebAR Factory Demo</title>
+    
+    <!-- Three.js library for 3D rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- MindAR library compiled for Three.js integration -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"></script>
+    
+    <!-- vConsole for mobile debugging -->
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+      var vConsole = new window.VConsole();
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container for the AR camera feed and 3D canvas -->
+    <div id="container"></div>
+
+    <!-- UI Layer that sits on top of the AR canvas -->
+    <div id="ui-layer">
+        <!-- The explanation box for Labour, Capital, and Technology. Hidden by default. -->
+        <div id="explanation" class="explanation-box"></div>
+    </div>
+
+    <!-- Start screen overlay to enforce a user click before requesting camera (required by many mobile browsers) -->
+    <div id="start-screen">
+        <h2>Factory WebAR Demo</h2>
+        <p>This AR experience requires camera access.</p>
+        <button id="start-button">Start AR Experience</button>
+        <div class="instructions">
+            <p><strong>Target Image Required:</strong></p>
+            <p>Please scan this <a href="card.png" target="_blank" rel="noopener noreferrer">Test Target Image</a> on another device or print it out.</p>
+        </div>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+</html>

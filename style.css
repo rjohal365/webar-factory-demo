@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling so the AR canvas fills the screen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Places the AR canvas behind our custom UI */
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    z-index: 2; /* Sits in front of AR canvas */
+    pointer-events: none; /* Let touches and clicks pass through to the 3D canvas for raycasting */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.explanation-box {
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none; /* Hidden until a label is tapped */
+    max-width: 85%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s;
+}
+
+#start-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(30, 30, 30, 0.95);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#start-button:active {
+    background-color: #45a049;
+    transform: scale(0.98); /* Small click feedback */
+}
+
+.instructions {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ccc;
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.instructions a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.instructions a:hover {
+    text-decoration: underline;
+}
